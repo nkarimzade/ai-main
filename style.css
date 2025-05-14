@@ -1,0 +1,426 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000; /* Siyah arka plan */
+    color: #ffffff; /* Beyaz yazı rengi */
+}
+
+/* Navbar Stili */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    padding: 10px 20px;
+    background-color: #1a1a1a; /* Koyu siyah arka plan */
+    color: #ffffff; /* Beyaz yazı rengi */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo */
+.logo h1 {
+    margin: 0 0 0 20px;
+    background: linear-gradient(to right, #ffffff, #000000); /* Sağdan sola beyazdan siyaha geçiş */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* Menü */
+.navbar .menu {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .menu ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar .menu ul li {
+    position: relative;
+}
+
+.navbar .menu ul li a {
+    text-decoration: none;
+    color: #ffffff; /* Beyaz yazı rengi */
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding-bottom: 5px;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Alt Çizgi Efekti */
+.navbar .menu ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ffffff; /* Beyaz alt çizgi */
+    transition: width 0.3s ease-in-out;
+}
+
+/* Hover Durumunda Çizgi Soldan Sağa Doğru */
+.navbar .menu ul li a:hover::after {
+    width: 100%;
+}
+
+.navbar .menu ul li a:hover {
+    color: #ffffff; /* Beyaz hover yazı rengi */
+}
+
+/* Hamburger Buton */
+.hamburger-btn {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+/* Mobil Menü */
+.hamburger-menu {
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    color: #ffffff; /* Beyaz yazı rengi */
+    background-color: #1a1a1a; /* Koyu siyah arka plan */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.hamburger-menu ul li {
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-bottom: 1px solid #3e3e3e; /* Gri sınır */
+    transition: background-color 0.3s ease-in-out;
+}
+
+.hamburger-menu ul li a {
+    text-decoration: none;
+    color: #ffffff; /* Beyaz yazı rengi */
+    display: block;
+}
+
+.hamburger-menu ul li:hover {
+    background-color: #333333; /* Koyu gri arka plan */
+}
+
+.hamburger-menu ul li:hover a {
+    color: #ffffff; /* Beyaz yazı rengi */
+}
+
+/* Açık Menü Durumu */
+.hamburger-menu.active {
+    display: block;
+}
+
+/* Responsive Tasarım */
+@media screen and (max-width: 768px) {
+    .hamburger-btn {
+        display: block;
+    }
+
+    .navbar .menu ul {
+        display: none;
+    }
+}
+
+/* Tema Değiştirme Butonu */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 20px;
+    background: none;
+    border: none;
+    color: #ffffff; /* Beyaz yazı rengi */
+    padding: 3px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+/* Chat Container Stili */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+#user-input {
+    margin-top: 100px;
+    width: 90%;
+    padding: 25px;
+    border: 1px solid #3e3e3e; /* Gri sınır */
+    border-radius: 5px;
+    color: #ffffff; /* Beyaz yazı rengi */
+    background-color: #1a1a1a; /* Koyu siyah arka plan */
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+#send-button {
+    padding: 10px;
+    border: none;
+    background-color: #ffffff; /* Beyaz arka plan */
+    color: #000000; /* Siyah yazı rengi */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 15px;
+}
+
+#send-button:hover {
+    background-color: #3e3e3e; /* Gri hover rengi */
+}
+
+.ai-response {
+    width: 90%;
+    height: 300px;
+    max-height: none;
+    overflow: auto;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #3e3e3e; /* Gri sınır */
+    border-radius: 5px;
+    background-color: #1a1a1a; /* Koyu siyah arka plan */
+    color: #ffffff; /* Beyaz yazı rengi */
+    font-size: 1rem;
+}
+
+.typing-animation {
+    display: inline-block;
+    border-right: 2px solid #ffffff; /* Beyaz imleç efekti */
+    animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    margin-top: 230px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 20px;
+    height: 80px;
+    background-color: #1a1a1a; /* Koyu siyah arka plan */
+    color: #ffffff; /* Beyaz yazı rengi */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.social-icons {
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    color: #ffffff; /* Beyaz yazı rengi */
+    font-size: 1.5rem;
+    transition: 1s;
+}
+
+.social-icons a:hover {
+    transform: translateY(-10px);
+    color: #f1c40f; /* Altın sarısı hover rengi */
+}
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    background-color: #000;
+    z-index: 999
+  } 
+
+  .spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-top: 5px;
+    border: 3px solid white;
+    border-top-color: #000; /* veya istediğin başka bir renk */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 8px; /* İstersen boşluk bırak */
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Chat Container */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+#user-input {
+    margin-top: 100px;
+    width: 90%;
+    padding: 25px;
+    border: 1px solid #3e3e3e;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #1a1a1a;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+#send-button {
+    padding: 10px;
+    border: none;
+    background-color: #ffffff;
+    color: #000000;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 15px;
+}
+
+#send-button:hover {
+    background-color: #3e3e3e;
+    color: white;
+}
+
+.ai-response {
+    width: 90%;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #3e3e3e;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Mesaj konteyner */
+.message {
+    display: flex;
+    width: 100%;
+}
+
+.user-message {
+    justify-content: flex-end;
+}
+
+.ai-message {
+    justify-content: flex-start;
+}
+
+.error-message {
+    justify-content: center;
+}
+
+/* Baloncuklar */
+.bubble {
+    max-width: 70%;
+    padding: 12px 16px;
+    border-radius: 16px;
+    font-size: 14px;
+    word-wrap: break-word;
+    background-color: #eeeeee;
+    color: #000;
+}
+
+.user-message .bubble {
+    background-color: #fff;
+    color: #3e3e3e;
+    border-bottom-right-radius: 0;
+}
+
+.ai-message .bubble {
+    background-color: #3e3e3e;
+    color: #fff;
+    border-bottom-left-radius: 0;
+}
+
+.error-message .bubble {
+    background-color: #ffdddd;
+    color: #b10000;
+    text-align: center;
+}
+
+/* Spinner */
+.spinner {
+    width: 16px;
+    height: 16px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    margin-left: 6px;
+    margin-top: 3px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

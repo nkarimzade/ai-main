@@ -231,6 +231,7 @@ footer {
     margin-top: 230px;
     left: 0;
     display: flex;
+    text-align: center;
     justify-content: center;
     align-items: center;
     width: 100%;

@@ -30,8 +30,11 @@ document.addEventListener("DOMContentLoaded", function () {
             const response = await fetch(apiUrl, {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
                 },
+                mode: "cors",
+                credentials: "omit",
                 body: JSON.stringify({ message: userMessage })
             });
 

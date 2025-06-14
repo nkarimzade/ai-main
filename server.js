@@ -4,21 +4,16 @@ import cors from "cors";
 import fetch from "node-fetch";
 import dotenv from "dotenv";
 
-// .env dosyasını yükle
 dotenv.config();
 
-// Express uygulamasını başlat
 const app = express();
 const port = 4003;
 
-// Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
-// API key'i burada kullanacağız
 const API_KEY = process.env.GROQ_API_KEY;
 
-// Sunucu çalıştığında
 app.get("/", (req, res) => {
     res.send("Kyrax AI sunucusu çalışıyor! 🌟");
 });
